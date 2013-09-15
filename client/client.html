@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <script src="network.js"></script>
+        <script>
+            connection = new Connection(
+                function (conn){
+                    conn.send("echo","lol");
+                },
+                function (conn,identifier,content){
+                    if(identifier == "message"){
+                        console.log(content);
+                    }else if(identifier == "greet"){
+                        conn.send("start")
+                    }else if(identifier == "time"){
+                        console.log(content)
+                    }
+                }
+            );
+        </script>
+    </body>
+</html>
